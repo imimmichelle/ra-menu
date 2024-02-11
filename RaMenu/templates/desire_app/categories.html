@@ -1,0 +1,10 @@
+{% extends "user_app/base.html" %}
+
+{% block bodyblock %}
+
+<h1>CATEGORIES</h1>
+{% for c in categories  %}
+    <p><a href="/desires/category/{{c.pk}}"> {{c.category_name}}</a></p>
+{% endfor %}
+
+{% endblock bodyblock %}

@@ -1,0 +1,9 @@
+{% extends "user_app/base.html" %}
+{% block bodyblock %}
+
+<h1>{{category.category_name}}</h1>
+{% for desire in desires %}
+    <p>{{desire.desire_name}}</p>
+{% endfor %}
+
+{% endblock bodyblock %}

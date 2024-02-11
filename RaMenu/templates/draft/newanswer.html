@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Add new answer</title>
+    <head>
+        <style>
+        table {
+          border-collapse: collapse;
+          width: 30%;
+        }
+        
+        th, td {
+          text-align: center;
+          padding: 16px;
+        }
+        
+        tr:nth-child(odd) {
+          background-color: #EFE8F7;
+        }
+
+        input[type=button], input[type=submit] {
+            background-color: #EFE8F7;
+            border: none;
+            color: black;
+            padding: 16px 32px;
+            text-decoration: none;
+            margin: 4px 2px;
+            cursor: pointer;
+          }
+
+        </style>
+        </head>
+</head>
+<body>
+    {% comment %} <form method = POST> {% endcomment %}
+
+        <h1>Hey User, what do you want with X?</h1>
+        <form method='POST'>
+            {% csrf_token %}
+            {% comment "ADD USER" %}{% endcomment %}
+            <table>
+                {% for desire in desires %}
+                <tr>
+                    <td><b>{{desire.desire_name}}</b></td>
+                    <td><input type="radio" id="yes" name={{desire.desire_name}} value="YES">
+                        <label for="YES">Yes</label><br></td>
+                    <td><input type="radio" id="maybe" name={{desire.desire_name}} value="MAYBE">
+                        <label for="MAYBE">Maybe</label><br></td>
+                    <td><input type="radio" id="no" name={{desire.desire_name}} value="NO">
+                        <label for="NO">No</label><br></td>
+                </tr>         
+            {% endfor %}
+            </table>
+            <input type="submit" value='Submit'>
+        </form>     
+        {% comment %} {% csrf_token %}
+        {{answer}}
+        <input type="submit" value="'Submit">
+        {% endfor %} {% endcomment %}
+
+        {% comment %} {{answer.as_p}} {% endcomment %}
+
+    {% comment %} </form> {% endcomment %}
+</body>
+</html>

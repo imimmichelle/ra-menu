@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Users compatibility</title>
+</head>
+<body>
+    {% if user1 and user2 %}
+    <h1> {{user1.user_name}} and {{user2.user_name}} </h1>
+    {% endif %}
+    {% if preferences1 %}
+    <ol>
+        {% for pref in preferences1 %}
+        
+            <li> {{pref.desire.desire_name}}</li>
+ 
+        {% endfor %}
+    </ol>
+    {% endif %}
+
+    {% if preferences2 %}
+    <ol>
+        {% for pref in preferences2 %}
+        
+            <li> {{pref.desire.desire_name}}</li>
+ 
+        {% endfor %}
+    </ol>
+    {% endif %}
+    
+</body>
+</html>
+
+

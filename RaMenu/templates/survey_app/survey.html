@@ -1,0 +1,29 @@
+{% extends "user_app/base.html" %}
+{% block bodyblock %}
+
+
+{% comment %} view takes in code {% endcomment %}
+{% comment %} complete the survey {% endcomment %}
+{% comment %} redirect to results (how?) {% endcomment %}
+<h1>{{category.category_name}}</h1>
+
+<form method='POST'>
+    {% csrf_token %}
+    {% comment "ADD USER" %}{% endcomment %}
+    <table>
+        {% for desire in desires %}
+        <tr>
+            <td><b>{{desire.desire_name}}</b></td>
+            <td><input type="radio" id="yes" name="{{desire.desire_name}}" value="YES">
+                <label for="YES">Yes</label><br></td>
+            <td><input type="radio" id="maybe" name="{{desire.desire_name}}" value="MAYBE">
+                <label for="MAYBE">Maybe</label><br></td>
+            <td><input type="radio" id="no" name="{{desire.desire_name}}" value="NO">
+                <label for="NO">No</label><br></td>
+        </tr>         
+    {% endfor %}
+    </table>
+    <input type="submit" value='Submit'>
+</form>     
+
+{% endblock bodyblock %}

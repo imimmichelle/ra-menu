@@ -1,0 +1,9 @@
+{% extends "user_app/base.html" %}
+{% block bodyblock %}
+<h1>Category with this name already exists</h1>
+<button><a href="{%url 'desire_app:newcategory'%}">Create another category</a></button>
+<button><a href="{%url 'index'%}">Go to main</a></button>
+
+{% endblock bodyblock %}
+
+

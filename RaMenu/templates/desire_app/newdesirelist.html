@@ -1,0 +1,16 @@
+{% extends "user_app/base.html" %}
+{% block bodyblock %}
+
+<h1>Add desire to category {{category.category_name}}</h1>
+<form method = POST>
+    {% csrf_token %}
+    {{desire.desire_name}}
+    {{desire.category.as_hidden}}
+    {% comment %} {{desire.as_p}} {% endcomment %}
+    <input type="submit" value="Add desire">
+</form>
+<p></p>
+<button><a href="{%url 'index'%}">Go to main</a></button>
+
+
+{% endblock bodyblock %}

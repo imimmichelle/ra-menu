@@ -1,0 +1,12 @@
+{% extends "user_app/base.html" %}
+
+{% block bodyblock %}
+
+<h1>NEWDESIRE</h1>
+<form method = POST>
+    {{desire.as_p}}
+    {% csrf_token %}
+    <input type="submit" value="Add desire">
+</form>
+
+{% endblock bodyblock %}

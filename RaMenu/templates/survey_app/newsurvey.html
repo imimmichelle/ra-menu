@@ -1,0 +1,29 @@
+{% extends "user_app/base.html" %}
+{% block bodyblock %}
+
+{% comment %} choose category {% endcomment %}
+<form action="" method='post'>
+    {% csrf_token %}
+    <label for="cars">Choose category:</label>
+    <select name="category" id="category">
+        {% for c in category %}
+        <option value="{{c.category_name}}">{{c.category_name}}</option>
+        {% endfor %}
+    </select>
+    <br><br>
+    <input type="submit" value='Generate survey'>
+  </form>
+
+
+{% comment %} generate code {% endcomment %}
+
+
+{% comment %} button to go to the survey {% endcomment %}
+
+
+{% comment %} go to page/<int:code> {% endcomment %}
+
+ {% comment %} <a href="{% url "survey_app:survey/{{code}}" %}"></a> {% endcomment %}
+
+
+{% endblock bodyblock %}

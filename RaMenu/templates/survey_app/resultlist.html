@@ -1,0 +1,25 @@
+{% extends "user_app/base.html" %}
+{% block bodyblock %}
+{% load my_templates %}
+MY RESULTS
+<ol>
+{% for code in codes  %}
+    <li>
+    <a href=" {% url 'survey_app:results' code %}">  {%with preferences|code:code|first as current_p%}
+        {{current_p.desire.category}}
+    {% endwith %} 
+    </a>
+    {%with all_preferences|code:code|not_user:user|first as current_p%}
+    {% if current_p %}
+        with <b>{{ current_p.user }}</b>
+    {% else %} 
+    {{ current_p.user }}
+        Waiting for partner to fill in the survey. Code = <b>{{code}}</b>
+    {% endif %}
+    
+    {% endwith %}
+
+    </li>
+{% endfor %}
+</ol>
+{% endblock bodyblock %}

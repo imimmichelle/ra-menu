@@ -1,0 +1,14 @@
+{% extends "user_app/base.html" %}
+{% block bodyblock %}
+
+{% comment %} enter code: form {% endcomment %}
+ <form action="" method='post'>
+    {% csrf_token %}
+    <input type="text" name='code'>
+    <input type="submit" value='Submit'>
+ </form>
+
+{% comment %} in views redirect to the page if it exists and is not taken {% endcomment %}
+{% comment %} in urls create survey/code {% endcomment %}
+
+{% endblock bodyblock %}

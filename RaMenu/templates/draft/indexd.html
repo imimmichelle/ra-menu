@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Welcome</title>
+</head>
+<body>
+    <div>
+    <h1>To add new desire go here: </h1>
+    <a href=" {% url 'draft:newdesire' %} ">Add new desire</a>
+    </div>
+    <div>
+    <h1>To fill out your preferences go here: </h1>
+    <a href=" {% url 'draft:newanswer' %} ">Survey</a>
+    </div>
+    <div>
+    <h1>To check compatibility go here: </h1>
+    <a href=" {% url 'draft:users' %} ">List of users</a>
+    </div>
+</body>
+</html>
+
