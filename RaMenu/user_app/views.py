@@ -7,8 +7,8 @@ from user_app.forms import UserForm
 
 # Create your views here.
 
-def main(request):
-    return render(request, 'user_app/main.html')
+def index(request):
+    return render(request, 'index.html')
 
 def register(request):
     registered = False

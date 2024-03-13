@@ -1,16 +1,26 @@
-{% extends "user_app/base.html" %}
+{% extends "base.html" %}
 {% block bodyblock %}
 
-<h1>Add desire to category {{category.category_name}}</h1>
-<form method = POST>
+<h1>Add desires to category {{category.category_name}}</h1>
+&nbsp
+<form class="col-md-8" method="POST">
     {% csrf_token %}
-    {{desire.desire_name}}
-    {{desire.category.as_hidden}}
-    {% comment %} {{desire.as_p}} {% endcomment %}
-    <input type="submit" value="Add desire">
+    <label for="desires" class='form-label'>Desires</label>
+    <textarea class='form-control' name="desires" id="desires" cols="10" rows="10" placeholder="Put the list of desires here, new desire on the new line"></textarea>
+    <input class='btn btn-light' type="submit" value="Add desires">
 </form>
-<p></p>
-<button><a href="{%url 'index'%}">Go to main</a></button>
+
+
+{% comment %} <form method = POST>
+    {% csrf_token %}
+    {{desires.desire_list}}
+    {{desires.category.as_hidden}}
+    {% comment %} {{desire.as_p}} 
+    <input class='btn btn-light' type="submit" value="Add desire">
+</form>
+<p></p> {% endcomment %}
+
+{% comment %} <a class='btn btn-light' href="{%url 'index'%}">Go to main page</a> {% endcomment %}
 
 
 {% endblock bodyblock %}

@@ -1,17 +1,17 @@
-{% extends "user_app/base.html" %}
+{% extends "base.html" %}
 {% block bodyblock %}
 <div class='jumbotron'>
     <h1>Please login</h1>
     <form action="{% url "user_app:user_login" %}" method='post'>
         {% csrf_token %}
 
-        <label for="username">Username:</label>
-        <input type="text" name='username' placeholder='Enter Username'>
+        <p><label for="username">Username:</label>
+        <input type="text" name='username' placeholder='Enter Username'></p>
 
-        <label for="password">Password:</label>
-        <input type="password" name='password'>
+        <p><label for="password">Password:</label>
+        <input type="password" name='password' placeholder='Password'></p>
 
-        <input type="submit" value='Login'>
+        <p><input class='btn btn-light' type="submit" value='Login'></p>
     </form>
 </div>
 

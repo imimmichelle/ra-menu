@@ -18,5 +18,9 @@ def code(preferences, code):
 def not_user(preferences, user):
     return preferences.filter(~Q(user=user))
 
+@register.filter
+def category(desires, cat):
+    return desires.filter(category=cat)
+
 #register.filter('desire_user', desire_user)
 

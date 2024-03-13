@@ -1,12 +1,13 @@
-{% extends "user_app/base.html" %}
+{% extends "base.html" %}
 
 {% block bodyblock %}
 
-<h1>NEWDESIRE</h1>
+<h1>Add new desire</h1>
+&nbsp
 <form method = POST>
     {{desire.as_p}}
     {% csrf_token %}
-    <input type="submit" value="Add desire">
+    <input class='btn btn-light' type="submit" value="Add desire">
 </form>
 
 {% endblock bodyblock %}

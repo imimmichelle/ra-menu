@@ -82,7 +82,7 @@ def survey(request, code):
 
         return HttpResponseRedirect(reverse('survey_app:results', kwargs={'code':code}))
     
-    context = {'category': category, 'desires':desires}
+    context = {'category': category, 'desires':desires, 'code':code}
     return render(request, 'survey_app/survey.html', context)
 
 def results(request, code):
@@ -110,6 +110,7 @@ def results(request, code):
         # TOTHINK maybe it's okay to have more than two users? - later
         return HttpResponseRedirect(reverse('survey_app:wrong_code'))
    
+    context['code'] = code
     context['user1'] = users[0]
     context['user2'] = users[1] if len(users)>1 else None
 
