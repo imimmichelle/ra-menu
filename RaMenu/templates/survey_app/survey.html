@@ -1,4 +1,4 @@
-{% extends "user_app/base.html" %}
+{% extends "base.html" %}
 {% block bodyblock %}
 
 
@@ -6,24 +6,25 @@
 {% comment %} complete the survey {% endcomment %}
 {% comment %} redirect to results (how?) {% endcomment %}
 <h1>{{category.category_name}}</h1>
-
+<h5>Survey code: {{ code}}</h5>
+&nbsp
 <form method='POST'>
     {% csrf_token %}
     {% comment "ADD USER" %}{% endcomment %}
-    <table>
+    <table class='w-50 table table-hover'>
         {% for desire in desires %}
         <tr>
             <td><b>{{desire.desire_name}}</b></td>
-            <td><input type="radio" id="yes" name="{{desire.desire_name}}" value="YES">
-                <label for="YES">Yes</label><br></td>
-            <td><input type="radio" id="maybe" name="{{desire.desire_name}}" value="MAYBE">
-                <label for="MAYBE">Maybe</label><br></td>
-            <td><input type="radio" id="no" name="{{desire.desire_name}}" value="NO">
-                <label for="NO">No</label><br></td>
+            <td ><input class='form-check-input' type="radio" id="yes" name="{{desire.desire_name}}" value="YES">
+                <label class="form-check-label" for="YES">Yes</label><br></td>
+            <td><input class='form-check-input' type="radio" id="maybe" name="{{desire.desire_name}}" value="MAYBE">
+                <label class="form-check-label" for="MAYBE">Maybe</label><br></td>
+            <td><input class='form-check-input' type="radio" id="no" name="{{desire.desire_name}}" value="NO">
+                <label class="form-check-label" for="NO">No</label><br></td>
         </tr>         
     {% endfor %}
     </table>
-    <input type="submit" value='Submit'>
+    <input class='btn btn-light' type="submit" value='Submit'>
 </form>     
 
 {% endblock bodyblock %}

@@ -1,7 +1,11 @@
-{% extends "user_app/base.html" %}
+{% extends "base.html" %}
 {% block bodyblock %}
 
 {% comment %} choose category {% endcomment %}
+<h3>Generate new survey</h1>
+  &nbsp
+<h5>After generating you will get a code for this particular survey that you can share with you partner.</h5>
+&nbsp
 <form action="" method='post'>
     {% csrf_token %}
     <label for="cars">Choose category:</label>
@@ -11,7 +15,7 @@
         {% endfor %}
     </select>
     <br><br>
-    <input type="submit" value='Generate survey'>
+    <input class='btn btn-light' type="submit" value='Generate survey'>
   </form>
 
 

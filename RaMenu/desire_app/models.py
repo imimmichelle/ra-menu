@@ -10,7 +10,7 @@ class Category(models.Model):
 
 class Desire(models.Model):
     desire_name = models.CharField(max_length=1024)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, related_name='category', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.desire_name

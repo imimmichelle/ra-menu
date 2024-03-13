@@ -1,8 +1,8 @@
-{% extends "user_app/base.html" %}
+{% extends "base.html" %}
 {% block bodyblock %}
 
 <h1>The code you entered is already used.</h1>
-<button><a href="{%url 'index'%}">Go to main</a></button>
+<a class='btn btn-light' href="{%url 'index'%}">Go to main</a>
 
 {% endblock bodyblock %}
 

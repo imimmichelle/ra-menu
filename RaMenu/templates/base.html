@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+{% comment %} <link rel="stylesheet" href="{% static "css/test.css" %}"> {% endcomment %}
+<style>.navbar-nav {
+  display: inline-block;
+}
+
+.navbar-nav>li {
+   display: inline-block;
+}</style>
+    {% comment %} <link rel="stylesheet" href="https://unpkg.com/mvp.css">   {% endcomment %}
+    {% comment %} <style>
+        table {
+          border-collapse: collapse;
+          width: 30%;
+        }
+        
+        th, td {
+          text-align: center;
+          padding: 16px;
+        }
+        
+        tr:nth-child(odd) {
+          background-color: #EFE8F7;
+        }
+    
+        input[type=button], input[type=submit] {
+            background-color: #EFE8F7;
+            border: none;
+            color: black;
+            padding: 16px 32px;
+            text-decoration: none;
+            margin: 4px 2px;
+            cursor: pointer;
+          }
+    
+        </style>  {% endcomment %}
+</head>
+<body>
+  
+    <nav class="navbar navbar-expand-lg navbar-static-top">
+        <div class="container">
+            <ul class="'nav navbar-nav">
+                <li><a class='nav-link' href='{%url 'index'%}'><b>HOME</b></a></li> 
+                {% comment %} <li><a class='nav-link' href='{%url 'admin:index'  %}'>Admin</a></li> {% endcomment %}
+
+            {% if user.is_authenticated %}
+                <li>You're logged in as <b>{{user.username}}</b> <a class='navbar-link' href=" {% url "user_app:user_logout" %} ">Logout</a></li>
+                {% comment %} <li> View all categories <a class='navbar-link' href="{% url "desire_app:categories" %}"></a> </li> {% endcomment %}
+            
+            
+            
+                {% else %} 
+               <li><a class='nav-link' href=" {% url "user_app:user_login" %} ">Login</a></li>
+               <li><a class='nav-link' href='{%url 'user_app:register' %}'>Sign up</a></li>  
+            {% endif %} 
+            
+            
+            
+            </ul>
+        </div>
+    </nav>
+    <div class='container'>
+    {% block bodyblock %}
+    {% endblock %}
+    </div>
+
+</body>
+</html>

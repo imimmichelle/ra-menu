@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% block bodyblock %}
+<h1> Welcome to the relationship menu </h1>
+&nbsp
+{% if user.is_authenticated %}
+
+<div class='row'>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">All categories</h5>
+          <p class="card-text">See the list of all existing categories of desires.</p>
+          <a href="{% url 'desire_app:categories' %}" class="btn btn-light">All categories</a>
+        </div>
+    </div>
+
+    <div class='col-sm-1'></div>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Add category</h5>
+          <p class="card-text">Create your own category of desires.</p>
+          <a href="{% url 'desire_app:newcategory' %}" class="btn btn-light">Add category</a>
+        </div>
+    </div>
+    <div class='col-sm-1'></div>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Add desire</h5>
+          <p class="card-text">Add new desire to an existing category.</p>
+          <a href="{% url 'desire_app:newdesire' %}" class="btn btn-light">Add desire</a>
+        </div>
+    </div>
+      
+</div>
+
+&nbsp
+
+<div class='row'>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">New survey</h5>
+          <p class="card-text">Create and fill out a new survey.</p>
+          <a href="{% url 'survey_app:newsurvey' %}" class="btn btn-light">New survey</a>
+        </div>
+    </div>
+    <div class='col-sm-1'></div>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Your partner sent you a code?</h5>
+          <p class="card-text">Fill out the survey useing the code your partner sent you.</p>
+          <a href="{% url 'survey_app:entercode' %}" class="btn btn-light">Go to survey</a>
+        </div>
+    </div>
+    <div class='col-sm-1'></div>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">View your results</h5>
+          <p class="card-text">View all the surveys you filled out and how your results match with your partners'.</p>
+          <a href="{% url 'survey_app:resultlist' %}" class="btn btn-light">View results</a>
+        </div>
+    </div>
+      
+</div>
+
+
+
+{% else %}
+    <h3>You are not logged in. Please log in or sign up</h3>
+    &nbsp
+
+    <div class='row'>
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">If you already have an account</h5>
+              <a href="{% url 'user_app:user_login' %}" class="btn btn-light">Log in</a>
+            </div>
+        </div>
+    
+        <div class='col-sm-1'></div>
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">If you don't have an account</h5>
+              <a href="{% url 'user_app:register' %}" class="btn btn-light">Sign up</a>
+            </div>
+        </div>
+
+{% endif %}
+{% endblock bodyblock %}

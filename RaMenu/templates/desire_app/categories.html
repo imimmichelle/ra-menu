@@ -1,10 +1,28 @@
-{% extends "user_app/base.html" %}
+{% extends "base.html" %}
+{% load static %}
+{% load my_templates %}
+
+{% comment %} <link rel="stylesheet" href="{% static "css/mystyle.css" %}"> {% endcomment %}
 
 {% block bodyblock %}
 
-<h1>CATEGORIES</h1>
-{% for c in categories  %}
-    <p><a href="/desires/category/{{c.pk}}"> {{c.category_name}}</a></p>
-{% endfor %}
+<h1>Existing categories</h1>
+
+<div class="accordion" id="accordionCategories">
+    {% for c in categories %}
+        <div class="accordion-item border-top">
+            <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{c.pk}}" aria-expanded="true" aria-controls="collapse{{c.pk}}">
+                {{c.category_name}}
+            </button>
+            </h2>
+            <div id="collapse{{c.pk}}" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                {% for desire in desires|category:c.pk  %}<p>{{desire.desire_name}}</p> {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
 
 {% endblock bodyblock %}

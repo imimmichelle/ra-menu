@@ -20,7 +20,7 @@ from user_app import views as v
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', v.main, name='index'),
+    path('', v.index, name='index'),
     path('user/', include('user_app.urls')),
     path('desires/', include('desire_app.urls')),
     path('surveys/', include('survey_app.urls')),

@@ -1,25 +1,39 @@
-{% extends "user_app/base.html" %}
+{% extends "base.html" %}
 {% block bodyblock %}
 {% load my_templates %}
-MY RESULTS
-<ol>
+<h1>View the surveys you already filled out</h1>
+
+<table class='table w-50 table-hover'>
+    <tr>
+        <td></td>
+        <td>Category</td>
+        <td>Code</td>
+        <td>Partner</td>
+    </tr>
 {% for code in codes  %}
-    <li>
-    <a href=" {% url 'survey_app:results' code %}">  {%with preferences|code:code|first as current_p%}
+    <tr>
+        <td><a href=" {% url 'survey_app:results' code %}"> View
+        </a> </td>
+    <td>{%with preferences|code:code|first as current_p%}
         {{current_p.desire.category}}
     {% endwith %} 
-    </a>
-    {%with all_preferences|code:code|not_user:user|first as current_p%}
-    {% if current_p %}
-        with <b>{{ current_p.user }}</b>
-    {% else %} 
-    {{ current_p.user }}
-        Waiting for partner to fill in the survey. Code = <b>{{code}}</b>
-    {% endif %}
-    
-    {% endwith %}
+     </td>
 
-    </li>
+    <td> {{code}} </td>
+
+    <td>{%with all_preferences|code:code|not_user:user|first as current_p%}
+        {% if current_p %}
+            with <b>{{ current_p.user }}</b>
+        {% else %} 
+        {{ current_p.user }}
+            Waiting for the partner to fill in the survey
+        {% endif %}
+        
+        {% endwith %} </td>
+        
+        
+
+    </tr>
 {% endfor %}
-</ol>
+
 {% endblock bodyblock %}

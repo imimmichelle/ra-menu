@@ -1,12 +1,13 @@
-{% extends "user_app/base.html" %}
+{% extends "base.html" %}
 
 {% block bodyblock %}
 
 <h1>New category</h1>
+&nbsp
 <form method = POST>
     {{category.as_p}}
     {% csrf_token %}
-    <input type="submit" value="Create category">
+    <input class='btn btn-light' placeholder="New category" type="submit" value="Create category">
 </form>
 
 {% endblock bodyblock %}
