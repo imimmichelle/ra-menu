@@ -45,6 +45,7 @@ def newdesirelist(request, category_id):
         desires = temp.split('\n')
         # create new records for all desires
         for desire in desires: 
+            desire = desire.replace('\r', '')
             new_desire = Desire()
             new_desire.desire_name = desire
             new_desire.category = category
